@@ -7,14 +7,38 @@ namespace UI
     {
         static void Main(string[] args)
         {
-            if (Sistema.CheckearUsuario("Pepe", "asd123"))
-            {
-                Console.WriteLine("Logeado");
-            }
-            else
-            {
-                Console.WriteLine("SIN ACCESO");
-            }
+            string nombre, password;
+            bool usuarioCorrecto;
+
+            Console.Title = "Sistema UTN";
+           
+                do
+                {
+                    Console.WriteLine("\nIngrese usuario\n");
+                    nombre = Console.ReadLine();
+
+                    Console.Clear();
+
+                    Console.WriteLine("\nIngrese password\n");
+                    password = Console.ReadLine();
+
+                    Console.Clear();
+
+                    usuarioCorrecto = Sistema.CheckearUsuario(nombre, password);
+
+                    if (usuarioCorrecto)
+                    {
+                        Console.WriteLine("Usuario Logueado");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Usuario incorrecto");
+                    }
+
+                } while (!usuarioCorrecto);
+
+            FuncionesConsola.SitioEnConstruccion();
+        
         }
     }
 }
